@@ -21,8 +21,7 @@ router.get('/notes', async (req, res) => {
 
 })
 router.post('/notes', async (req, res) => {
-    // const existingNotes = await fs.readFile('/db/db.json');
-    const newNote = req.body
+    const newNote = { title: req.body.title, text: req.body.text, id: req.body.title }
     console.log('new note', newNote)
 
     let existingNotes = readFileAsync('./db/db.json', 'utf8').then((notes) => {
